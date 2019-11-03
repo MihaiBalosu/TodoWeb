@@ -45,6 +45,10 @@ app.get('/myTodos/addTodo', (req, res) => {
     res.render('addTodo')
 })
 
+app.get('/myAccount', (req, res) => {
+    res.render('myAccount')
+})
+
 app.post('/login', async (req, res) => {
     if (!req.query.email || !req.query.password) {
         return res.send({
@@ -207,9 +211,19 @@ app.post('/delete', async (req, res) => {
     const mail = req.query.mail
     const des = req.query.description
     const name = req.query.name
-    const x = await Todo.deleteOne({name: name, description: des, user: mail}, (err) => {
+    await Todo.deleteOne({name: name, description: des, user: mail}, (err) => {
         console.log(err)
         res.send()
+    })
+})
+
+app.post('/deleteAccount', async (req, res) => {
+    const mail = req.query.mail
+    await User.deleteOne({email: mail}, (err) => {
+        console.log(err)
+    })
+    await Todo.deleteMany({user: mail}, (err) => {
+        console.log(err)
     })
 })
 
