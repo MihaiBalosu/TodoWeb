@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TodoWeb</title>
+    <link rel="stylesheet" href="/css/myTodos.css">
+</head>
+<body>
+<p>
+    <button id="addTodo">New Todo</button>
+</p>
+<table id="table" style="width:100%">
+    <tr>
+        <th>Todo</th>
+        <th>Description</th>
+        <th>Status</th>
+    </tr>
+</table>
+<nav id="context-menu" class="context-menu">
+    <ul class="context-menu__items">
+        <li class="context-menu__item">
+            <a href="#" class="context-menu__link" data-action="View" id="delete"><i class="fa fa-eye"></i> Delete</a>
+        </li>
+        <li class="context-menu__item">
+            <a href="#" class="context-menu__link" data-action="Edit" id="completed"><i class="fa fa-edit"></i>Set As Completed</a>
+        </li>
+        <li class="context-menu__item">
+            <a href="#" class="context-menu__link" data-action="Delete" id="incompleted"><i class="fa fa-times"></i>Set As Incompleted</a>
+        </li>
+    </ul>
+</nav>
+<script src="/js/myTodos.js"></script>
+
+</body>
+</html>
